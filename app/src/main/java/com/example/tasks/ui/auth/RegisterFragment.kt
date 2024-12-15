@@ -6,16 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.tasks.R
 import com.example.tasks.data.TaskDatabase
+import com.example.tasks.data.model.User
 import com.example.tasks.data.repository.UserRepository
 import com.example.tasks.databinding.FragmentRegisterBinding
 import com.example.tasks.ui.AuthViewModel
 import com.example.tasks.ui.AuthViewModelFactory
-import com.example.tasks.data.model.User
 
 class RegisterFragment : Fragment() {
 
@@ -44,7 +42,6 @@ class RegisterFragment : Fragment() {
                             .replace(R.id.navHostFragment, LoginFragment())
                             .addToBackStack(null)
                             .commit()
-//                        parentFragmentManager.popBackStack()
                     },
                     onError = { error ->
                         Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()

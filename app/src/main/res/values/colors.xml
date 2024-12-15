@@ -3,9 +3,9 @@
     <color name="text_primary">#EEEEEE</color>
     <color name="text_secondary">#99EEEEEE</color>
 
-    <color name="primary_color">#343d4b</color>
+    <color name="primary_color">#282828</color>
     <color name="dark_primary_color">@color/primary_color</color>
-    <color name="secondary_color">#5c6470</color>
+    <color name="secondary_color">#383838</color>
     <color name="accent_color">#FF0083</color>
 
     <color name="background">#15191e</color>
