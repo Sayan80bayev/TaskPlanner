@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.tasks.R
 import com.example.tasks.data.TaskDatabase
 import com.example.tasks.data.repository.UserRepository
 import com.example.tasks.databinding.FragmentLoginBinding
 import com.example.tasks.ui.AuthViewModel
 import com.example.tasks.ui.AuthViewModelFactory
+import com.example.tasks.ui.list.ListFragment
 
 class LoginFragment : Fragment() {
 
@@ -37,7 +40,7 @@ class LoginFragment : Fragment() {
                     password,
                     onSuccess = { user ->
                         Toast.makeText(requireContext(), "Welcome ${user.email}", Toast.LENGTH_SHORT).show()
-                        // Переход на следующий экран или главную страницу
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListFragment(null))
                     },
                     onError = { error ->
                         Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
