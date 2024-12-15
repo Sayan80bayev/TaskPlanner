@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Task Planner</string>
 
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+
     <!-- Content descriptions -->
     <string name="add_description">Add new task</string>
     <string name="save_description">Save added task</string>

@@ -6,8 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.tasks.data.model.Task
+import com.example.tasks.data.model.User
 
-@Database(entities = [Task::class], version = 7, exportSchema = true)
+@Database(entities = [Task::class, User::class], version = 7, exportSchema = true)
 @TypeConverters(Converter::class)
 abstract class TaskDatabase : RoomDatabase() {
 
@@ -31,4 +32,5 @@ abstract class TaskDatabase : RoomDatabase() {
     }
 
     abstract fun taskDao(): TaskDao
+    abstract fun userDao(): UserDao
 }

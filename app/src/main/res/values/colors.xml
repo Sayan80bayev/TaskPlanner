@@ -6,7 +6,7 @@
     <color name="primary_color">#343d4b</color>
     <color name="dark_primary_color">@color/primary_color</color>
     <color name="secondary_color">#5c6470</color>
-    <color name="accent_color">#10A7AE</color>
+    <color name="accent_color">#FF0083</color>
 
     <color name="background">#15191e</color>
     <color name="error">#FF4949</color>
