@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_primary">#EEEEEE</color>
+    <color name="text_secondary">#99EEEEEE</color>
+
+    <color name="primary_color">#343d4b</color>
+    <color name="dark_primary_color">@color/primary_color</color>
+    <color name="secondary_color">#5c6470</color>
+    <color name="accent_color">#10A7AE</color>
+
+    <color name="background">#15191e</color>
+    <color name="error">#FF4949</color>
+
+    <!-- Category colors -->
+    <color name="study_category">#809CFF</color>
+    <color name="work_category">#FF9680</color>
+    <color name="home_category">#FFCC80</color>
+    <color name="social_category">#FF80EB</color>
+    <color name="sport_category">#6CE4C0</color>
+    <color name="shopping_category">#E4D660</color>
+    <color name="health_category">#80DEEA</color>
+
+    <!-- Priority colors -->
+    <color name="high_priority">#d2222d</color>
+    <color name="medium_priority">#ffbf00</color>
+    <color name="low_priority">#238823</color>
+</resources>

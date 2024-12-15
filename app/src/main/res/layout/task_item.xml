@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="task"
+            type="com.example.tasks.data.model.Task" />
+
+        <variable
+            name="isDone"
+            type="Boolean" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="16dp"
+        android:doneColor="@{isDone}"
+        android:navigateToEdit="@{task}"
+        app:cardCornerRadius="6dp"
+        tools:backgroundTint="@color/primary_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="@{isDone?0.5f:1.f}"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp">
+
+            <CheckBox
+                android:id="@+id/done_check"
+                style="@style/CustomCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{isDone}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_tv"
+                style="@style/TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="12dp"
+                android:text="@{task.title}"
+                app:layout_constraintBottom_toTopOf="@id/time_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/done_check"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/time_tv"
+                style="@style/GrayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:layout_marginStart="12dp"
+                android:setDateTime="@{task.dateTime}"
+                android:textSize="@dimen/medium_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/done_check"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv"
+                tools:text="Today at 14:50" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv">
+
+                <TextView
+                    style="@style/ListLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_solid_bg"
+                    android:backgroundTint="@{context.getColor(task.category.color)}"
+                    android:drawableStart="@{context.getDrawable(task.category.icon)}"
+                    android:drawablePadding="6dp"
+                    android:gravity="center"
+                    android:hideIfNoCategory="@{task.category}"
+                    android:text="@{task.category.toString()}"
+                    tools:ignore="UseCompatTextViewDrawableXml"
+                    tools:text="Category" />
+
+                <TextView
+                    android:id="@+id/priority_layout"
+                    style="@style/ListLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/round_stroke_bg"
+                    android:backgroundTint="@{context.getColor(task.priority.color)}"
+                    android:drawablePadding="6dp"
+                    android:hideIfNoPriority="@{task.priority}"
+                    android:text="@{task.priority.toString()}"
+                    app:drawableStartCompat="@drawable/ic_priority"
+                    tools:text="Priority" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
