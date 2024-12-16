@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text_primary">#EEEEEE</color>
-    <color name="text_secondary">#99EEEEEE</color>
+    <!-- Text colors -->
+    <color name="text_primary">#000000</color> <!-- Черный для основного текста -->
+    <color name="text_secondary">#99000000</color> <!-- Полупрозрачный черный для вторичного текста -->
 
-    <color name="primary_color">#282828</color>
+    <!-- Основные цвета -->
+    <color name="primary_color">#FFFFFF</color> <!-- Белый для основного фона -->
     <color name="dark_primary_color">@color/primary_color</color>
-    <color name="secondary_color">#383838</color>
-    <color name="accent_color">#FF0083</color>
+    <color name="secondary_color">#F0F0F0</color> <!-- Светло-серый для вторичных элементов -->
+    <color name="accent_color">#007BFF</color> <!-- Синий для акцента -->
 
-    <color name="background">#15191e</color>
-    <color name="error">#FF4949</color>
+    <!-- Фоновые цвета -->
+    <color name="background">#FFFFFF</color> <!-- Белый фон -->
+    <color name="error">#FF4949</color> <!-- Ошибки остаются красными -->
 
-    <!-- Category colors -->
+    <!-- Цвета категорий -->
     <color name="study_category">#809CFF</color>
     <color name="work_category">#FF9680</color>
     <color name="home_category">#FFCC80</color>
@@ -20,8 +23,8 @@
     <color name="shopping_category">#E4D660</color>
     <color name="health_category">#80DEEA</color>
 
-    <!-- Priority colors -->
-    <color name="high_priority">#d2222d</color>
-    <color name="medium_priority">#ffbf00</color>
-    <color name="low_priority">#238823</color>
+    <!-- Цвета приоритетов -->
+    <color name="high_priority">#D2222D</color> <!-- Красный для высокого приоритета -->
+    <color name="medium_priority">#FFBF00</color> <!-- Желтый для среднего приоритета -->
+    <color name="low_priority">#238823</color> <!-- Зеленый для низкого приоритета -->
 </resources>

@@ -90,6 +90,7 @@
                     android:onClick="@{() -> handler.negativeButton()}"
                     android:text="@string/cancel_button"
                     android:textAllCaps="false"
+
                     android:textColor="@color/accent_color" />
 
                 <Button
@@ -103,6 +104,8 @@
                     android:backgroundTint="@color/accent_color"
                     android:onClick="@{() -> handler.positiveButton()}"
                     android:text="@string/delete_button"
+                    android:textColor="@color/dark_primary_color"
+
                     android:textAllCaps="false" />
 
             </LinearLayout>

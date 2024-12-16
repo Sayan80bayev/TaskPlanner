@@ -68,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> handler.negativeButton()}"
                     android:layout_marginHorizontal="8dp"
+
                     android:layout_weight="1"
                     android:background="@drawable/round_solid_bg"
                     android:text="@string/cancel_button"
@@ -84,6 +85,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/round_solid_bg"
                     android:backgroundTint="@color/accent_color"
+                    android:textColor="@color/dark_primary_color"
                     android:text="@string/save_button"
                     android:textAllCaps="false" />
 

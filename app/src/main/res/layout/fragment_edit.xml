@@ -224,6 +224,7 @@
             android:backgroundTint="@color/accent_color"
             android:onClick="@{() -> handler.saveChanges()}"
             android:text="@string/save_changes_button"
+            android:textColor="@color/dark_primary_color"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
