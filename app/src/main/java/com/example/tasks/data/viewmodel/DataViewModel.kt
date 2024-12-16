@@ -8,6 +8,7 @@ import com.example.tasks.data.TaskDatabase
 import com.example.tasks.data.model.Sorting
 import com.example.tasks.data.model.Task
 import com.example.tasks.data.repository.TaskRepository
+import com.example.tasks.ui.context.UserSession
 import com.example.tasks.utils.DateTimeUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -20,6 +21,8 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
 
     private val taskDao = TaskDatabase.getInstance(application).taskDao()
     private val repository = TaskRepository(taskDao)
+
+    private val userId = UserSession.currentUser!!.id // Get the user ID from the session
 
     private val sortFlow =
         MutableStateFlow(Triple<OffsetDateTime?, Sorting, String?>
@@ -35,25 +38,25 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
             when (sorting) {
                 Sorting.BY_TIME -> {
                     if (search != null) {
-                        repository.searchTasksSortTime("%$search%")
+                        repository.searchTasksSortTime(userId, "%$search%") // Pass userId to repository
                     } else if (date != null) {
                         val startDate = DateTimeUtil.dateToTimestamp(date)
                         val endDate = DateTimeUtil.dateToTimestamp(date.plusDays(1))
-                        repository.dateTasksSortTime(startDate, endDate)
+                        repository.dateTasksSortTime(userId, startDate, endDate) // Pass userId to repository
                     } else {
-                        repository.allTasksSortTime()
+                        repository.allTasksSortTime(userId) // Pass userId to repository
                     }
                 }
 
                 Sorting.BY_PRIORITY -> {
                     if (search != null) {
-                        repository.searchTasksSortPriority("%$search%")
+                        repository.searchTasksSortPriority(userId, "%$search%") // Pass userId to repository
                     } else if (date != null) {
                         val startDate = DateTimeUtil.dateToTimestamp(date)
                         val endDate = DateTimeUtil.dateToTimestamp(date.plusDays(1))
-                        repository.dateTasksSortPriority(startDate, endDate)
+                        repository.dateTasksSortPriority(userId, startDate, endDate) // Pass userId to repository
                     } else {
-                        repository.allTasksSortPriority()
+                        repository.allTasksSortPriority(userId) // Pass userId to repository
                     }
                 }
             }
@@ -86,7 +89,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
 
     fun deleteAll() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteAllTasks()
+            repository.deleteAllTasks(userId) // Pass userId to repository
         }
     }
 }

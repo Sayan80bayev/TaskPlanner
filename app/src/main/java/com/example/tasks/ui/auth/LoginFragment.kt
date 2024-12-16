@@ -13,6 +13,7 @@ import com.example.tasks.data.repository.UserRepository
 import com.example.tasks.databinding.FragmentLoginBinding
 import com.example.tasks.ui.AuthViewModel
 import com.example.tasks.ui.AuthViewModelFactory
+import com.example.tasks.ui.context.UserSession
 
 class LoginFragment : Fragment() {
 
@@ -36,6 +37,7 @@ class LoginFragment : Fragment() {
                     email,
                     password,
                     onSuccess = { user ->
+                        UserSession.currentUser = user
                         Toast.makeText(requireContext(), "Welcome ${user.email}", Toast.LENGTH_SHORT).show()
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListFragment(null))
                     },

@@ -1,25 +1,27 @@
 package com.example.tasks.data.repository
 
-import androidx.lifecycle.LiveData
 import com.example.tasks.data.TaskDao
 import com.example.tasks.data.model.Task
 import kotlinx.coroutines.flow.Flow
 
 class TaskRepository(private val taskDao: TaskDao) {
-    fun allTasksSortTime(): Flow<List<Task>> = taskDao.allTasksSortTime()
-    fun allTasksSortPriority(): Flow<List<Task>> = taskDao.allTasksSortPriority()
 
-    fun dateTasksSortTime(startDate: String, endDate: String): Flow<List<Task>> =
-        taskDao.dateTasksSortTime(startDate, endDate)
+    // Pass userId when calling the DAO methods
+    fun allTasksSortTime(userId: Int): Flow<List<Task>> = taskDao.allTasksSortTime(userId)
 
-    fun dateTasksSortPriority(startDate: String, endDate: String): Flow<List<Task>> =
-        taskDao.dateTasksSortPriority(startDate, endDate)
+    fun allTasksSortPriority(userId: Int): Flow<List<Task>> = taskDao.allTasksSortPriority(userId)
 
-    fun searchTasksSortTime(query: String): Flow<List<Task>> =
-        taskDao.searchTasksSortTime(query)
+    fun dateTasksSortTime(userId: Int, startDate: String, endDate: String): Flow<List<Task>> =
+        taskDao.dateTasksSortTime(userId, startDate, endDate)
 
-    fun searchTasksSortPriority(query: String): Flow<List<Task>> =
-        taskDao.searchTasksSortPriority(query)
+    fun dateTasksSortPriority(userId: Int, startDate: String, endDate: String): Flow<List<Task>> =
+        taskDao.dateTasksSortPriority(userId, startDate, endDate)
+
+    fun searchTasksSortTime(userId: Int, query: String): Flow<List<Task>> =
+        taskDao.searchTasksSortTime(userId, query)
+
+    fun searchTasksSortPriority(userId: Int, query: String): Flow<List<Task>> =
+        taskDao.searchTasksSortPriority(userId, query)
 
     suspend fun insertTask(task: Task) {
         taskDao.insertTask(task)
@@ -33,8 +35,7 @@ class TaskRepository(private val taskDao: TaskDao) {
         taskDao.deleteTask(task)
     }
 
-    suspend fun deleteAllTasks() {
-        taskDao.deleteAllTasks()
+    suspend fun deleteAllTasks(userId: Int) {
+        taskDao.deleteAllTasks(userId)
     }
-
 }

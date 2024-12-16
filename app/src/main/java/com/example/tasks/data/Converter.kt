@@ -3,6 +3,7 @@ package com.example.tasks.data
 import androidx.room.TypeConverter
 import com.example.tasks.data.model.Category
 import com.example.tasks.data.model.Priority
+import com.example.tasks.data.model.User
 import com.example.tasks.utils.DateTimeUtil
 import java.time.OffsetDateTime
 
@@ -26,6 +27,9 @@ object Converter {
 
     @TypeConverter
     fun fromPriority(priority: Priority) = priority.value
+
+    @TypeConverter
+    fun fromPriority(user: User) = user.id
 
     @TypeConverter
     fun toPriority(value: Int) = Priority.fromValue(value)
