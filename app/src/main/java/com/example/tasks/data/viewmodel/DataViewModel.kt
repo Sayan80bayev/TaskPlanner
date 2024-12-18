@@ -22,7 +22,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
     private val taskDao = TaskDatabase.getInstance(application).taskDao()
     private val repository = TaskRepository(taskDao)
 
-    private val userId = UserSession.currentUser!!.id // Get the user ID from the session
+    private val userId = UserSession.currentUser!!.id
 
     private val sortFlow =
         MutableStateFlow(Triple<OffsetDateTime?, Sorting, String?>

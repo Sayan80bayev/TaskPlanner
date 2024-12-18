@@ -29,7 +29,9 @@ class CategoryDialog(private val initCategory: Category) : DialogFragment(), Dia
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(activity)
         val inflater = requireActivity().layoutInflater
+
         _binding = CategoryDialogBinding.inflate(inflater)
+
         builder.setView(binding.root)
 
         binding.handler = this

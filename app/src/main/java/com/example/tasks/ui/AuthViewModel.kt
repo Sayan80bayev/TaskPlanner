@@ -11,6 +11,12 @@ class AuthViewModel(private val userRepository: UserRepository) : ViewModel() {
     fun register(user: User, onSuccess: () -> Unit, onError: (String) -> Unit) {
         viewModelScope.launch {
             try {
+
+                if(userRepository.getUserByEmail(user.email) != null){
+                    onError("User already exists")
+                    return@launch
+                }
+
                 userRepository.register(user)
                 onSuccess()
             } catch (e: Exception) {

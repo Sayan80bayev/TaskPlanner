@@ -6,7 +6,7 @@
 
     <!-- Основные цвета -->
     <color name="primary_color">#FFFFFF</color> <!-- Белый для основного фона -->
-    <color name="dark_primary_color">@color/primary_color</color>
+    <color name="dark_primary_color">#f5f5f5</color>
     <color name="secondary_color">#F0F0F0</color> <!-- Светло-серый для вторичных элементов -->
     <color name="accent_color">#007BFF</color> <!-- Синий для акцента -->
 

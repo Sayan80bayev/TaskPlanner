@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:padding="16dp"
             android:textColorHint="@android:color/darker_gray"
             android:inputType="textEmailAddress"
@@ -28,11 +28,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:padding="16dp"
             android:textColorHint="@android:color/darker_gray"
             android:background="@drawable/edit_text_background"
-            android:hint="Пароль"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
         <Button
@@ -42,6 +42,6 @@
             android:textColor="@android:color/white"
             android:background="@drawable/button_background"
             android:layout_marginBottom="16dp"
-            android:text="Регистрация" />
+            android:text="@string/register" />
     </LinearLayout>
 </ScrollView>

@@ -24,6 +24,7 @@ class DeleteDialog(private val title: String) : DialogFragment(), DialogEventHan
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(activity)
         val inflater = requireActivity().layoutInflater
+
         _binding = DeleteDialogBinding.inflate(inflater)
         builder.setView(binding.root)
 

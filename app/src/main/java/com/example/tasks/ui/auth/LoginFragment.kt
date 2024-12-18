@@ -29,6 +29,7 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         binding.loginButton.setOnClickListener {
+
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
@@ -41,7 +42,7 @@ class LoginFragment : Fragment() {
                         Toast.makeText(requireContext(), "Welcome ${user.email}", Toast.LENGTH_SHORT).show()
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListFragment(null))
                     },
-                    onError = { error ->
+                    onError = {
                         Toast.makeText(requireContext(), "Invalid email or password", Toast.LENGTH_SHORT).show()
                     }
                 )

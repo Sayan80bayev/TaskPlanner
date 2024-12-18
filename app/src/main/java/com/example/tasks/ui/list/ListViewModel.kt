@@ -1,7 +1,5 @@
 package com.example.tasks.ui.list
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.tasks.data.model.Sorting
@@ -14,6 +12,7 @@ class ListViewModel : ViewModel() {
     private val _params =
         MutableStateFlow(Triple<OffsetDateTime, Sorting, String?>
             (DateTimeUtil.todayStart, Sorting.defaultSort, null))
+
     val params = _params.asLiveData()
 
     fun setDate(newDate: OffsetDateTime) {
